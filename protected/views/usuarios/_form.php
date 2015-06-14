@@ -15,7 +15,7 @@
 	'enableAjaxValidation'=>false,
 )); ?>
 
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
+	<p class="note">Los campos con <span class="required">*</span> son obligatorios.</p>
 
 	<?php echo $form->errorSummary($model); ?>
 
@@ -26,28 +26,35 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'contraseña'); ?>
-		<?php echo $form->textField($model,'contraseña',array('size'=>45,'maxlength'=>45)); ?>
-		<?php echo $form->error($model,'contraseña'); ?>
+		<?php echo $form->labelEx($model,'password'); ?>
+		<?php echo $form->passwordField($model,'password',array('size'=>45,'maxlength'=>45)); ?>
+		<?php echo $form->error($model,'password'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'correoElectronico'); ?>
-		<?php echo $form->textField($model,'correoElectronico',array('size'=>45,'maxlength'=>45)); ?>
-		<?php echo $form->error($model,'correoElectronico'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'fecha_alta'); ?>
-		<?php echo $form->textField($model,'fecha_alta'); ?>
-		<?php echo $form->error($model,'fecha_alta'); ?>
+		<?php echo $form->labelEx($model,'email'); ?>
+		<?php echo $form->textField($model,'email',array('size'=>45,'maxlength'=>45)); ?>
+		<?php echo $form->error($model,'email'); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'privilegios'); ?>
-		<?php echo $form->textField($model,'privilegios'); ?>
+		<?php echo $form->textField($model,'privilegios',array('size'=>45,'maxlength'=>45)); ?>
 		<?php echo $form->error($model,'privilegios'); ?>
 	</div>
+
+
+
+<div class="row">
+	<?php
+
+if ($model->isNewRecord){
+  echo date('d-m-Y',time());
+    echo $form->hiddenField($model,'fecha_actual',array('type'=>'hidden','value'=>date('d-m-Y',time())));
+
+}
+?>
+    </div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'observaciones'); ?>
@@ -55,15 +62,30 @@
 		<?php echo $form->error($model,'observaciones'); ?>
 	</div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'actualizado'); ?>
-		<?php echo $form->textField($model,'actualizado'); ?>
-		<?php echo $form->error($model,'actualizado'); ?>
-	</div>
+
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
+		<?php echo CHtml::submitButton($model->isNewRecord ? 'Crear' : 'Guardar'); ?>
 	</div>
+	<?php
+/*
+<div class="row">
+		<?php echo $form->labelEx($model,'fecha_alta'); ?>
+		<?php echo $form->textField($model,'fecha_alta'); ?>
+		<?php echo $form->error($model,'fecha_alta'); ?>
+	</div>
+<div class="row">
+		<?php echo $form->labelEx($model,'privilegios'); ?>
+		<?php echo $form->textField($model,'privilegios'); ?>
+		<?php echo $form->error($model,'privilegios'); ?>
+	</div>
+
+<div class="row">
+		<?php echo $form->labelEx($model,'actualizado'); ?>
+		<?php var_dump( localtime()); ?>
+		<?php echo $form->textField($model,'privilegios'); ?>
+	</div>*/
+?>
 
 <?php $this->endWidget(); ?>
 

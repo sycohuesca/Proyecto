@@ -3,20 +3,20 @@
 /* @var $model Unidad */
 
 $this->breadcrumbs=array(
-	'Unidads'=>array('index'),
+	'Unidades'=>array('index'),
 	$model->id_unidad,
 );
 
 $this->menu=array(
-	array('label'=>'List Unidad', 'url'=>array('index')),
-	array('label'=>'Create Unidad', 'url'=>array('create')),
-	array('label'=>'Update Unidad', 'url'=>array('update', 'id'=>$model->id_unidad)),
-	array('label'=>'Delete Unidad', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id_unidad),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage Unidad', 'url'=>array('admin')),
+	array('label'=>'Lista Unidades', 'url'=>array('index')),
+	array('label'=>'Nueva Unidad', 'url'=>array('create')),
+	array('label'=>'Actualizar Unidad', 'url'=>array('update', 'id'=>$model->id_unidad)),
+	array('label'=>'Eliminar Unidad', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id_unidad),'confirm'=>'Estas seguro que quieres eliminar esta unidad ?')),
+	array('label'=>'Adminstar Unidades', 'url'=>array('admin')),
 );
 ?>
 
-<h1>View Unidad #<?php echo $model->id_unidad; ?></h1>
+<h1>Ver unidad nº: <?php echo $model->id_unidad; ?></h1>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,

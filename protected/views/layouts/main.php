@@ -31,9 +31,9 @@
 			'items'=>array(
                 array('label'=>'Personas', 'url'=>array('/personas')),
                 array('label'=>'Actos', 'url'=>array('/actos')),
-                array('label'=>'Home', 'url'=>array('/invitado/index')),
-                array('label'=>'Unidad', 'url'=>array('/unidad/index')),
                 array('label'=>'Invitados', 'url'=>array('/invitado/index')),
+                array('label'=>'Unidades', 'url'=>array('/unidad/index')),
+                array('label'=>'Usuarios', 'url'=>array('/usuarios/index')),
 				array('label'=>'Home', 'url'=>array('/site/index')),
 				array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
 				array('label'=>'Contact', 'url'=>array('/site/contact')),

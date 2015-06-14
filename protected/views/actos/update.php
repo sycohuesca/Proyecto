@@ -3,19 +3,20 @@
 /* @var $model Actos */
 
 $this->breadcrumbs=array(
-	'Actoses'=>array('index'),
+	'Actos'=>array('index'),
 	$model->id_acto=>array('view','id'=>$model->id_acto),
 	'Update',
 );
 
 $this->menu=array(
-	array('label'=>'List Actos', 'url'=>array('index')),
-	array('label'=>'Create Actos', 'url'=>array('create')),
-	array('label'=>'View Actos', 'url'=>array('view', 'id'=>$model->id_acto)),
-	array('label'=>'Manage Actos', 'url'=>array('admin')),
+	array('label'=>'Lista Actos', 'url'=>array('index')),
+	array('label'=>'Nuevo Acto', 'url'=>array('create')),
+	array('label'=>'Ver Acto', 'url'=>array('view', 'id'=>$model->id_acto)),
+	array('label'=>'Administrar Actos', 'url'=>array('admin')),
+    array('label'=>'Invitar', 'url'=>array('invitar','id'=>$model->id_acto)),
 );
 ?>
 
-<h1>Update Actos <?php echo $model->id_acto; ?></h1>
+<h1>Actualizar Actos nº <?php echo $model->id_acto; ?></h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

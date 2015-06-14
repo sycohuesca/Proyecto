@@ -19,6 +19,28 @@
  */
 class Actos extends CActiveRecord
 {
+    /**
+    * devuelve un array para nuestro select de asunto
+    *
+    */
+    public function getGenderOptions(){
+    return array(
+        'Jura de Bandera' => 'Jura de Bandera',
+        'Toma de Posesión' => 'Toma de Posesión',
+    'Despedida de Bandera' => 'Despedida de Bandera',
+        'Patrona de Unidad' => 'Patrona de Unidad',
+        'Entrega de Trofeos'=> 'Entrega de Trofeos',
+        'Homenaje a los Caidos'=> 'Homenaje a los Caidos',
+        'Renovación de Juramento'=> 'Renovación de Juramento',
+        'Clausura de Curso'=> 'Clausura de Curso',
+        'Cenas / Comidas'=> 'Cenas / Comidas',
+        'Otros'=> 'Otros'
+
+    );
+}
+
+
+
 	/**
 	 * @return string the associated database table name
 	 */
@@ -35,8 +57,8 @@ class Actos extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('asunto, lugar, fecha, hora, uniformidad, observaciones, presidido_por, material_necesario', 'required'),
-			array('asunto, lugar, uniformidad, presidido_por', 'length', 'max'=>45),
+			array('asunto, lugar, fecha, presidido_por', 'required'),
+			array('hora, uniformidad, observaciones, material_necesario', 'length', 'max'=>45),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id_acto, asunto, lugar, fecha, hora, uniformidad, observaciones, presidido_por, material_necesario', 'safe', 'on'=>'search'),

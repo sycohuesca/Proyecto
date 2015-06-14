@@ -8,6 +8,10 @@ class ActosController extends Controller
 	 */
 	public $layout='//layouts/column2';
 
+
+
+
+
 	/**
 	 * @return array action filters
 	 */
@@ -28,11 +32,11 @@ class ActosController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
-				'users'=>array('*'),
+				'actions'=>array('index','view','invitar',),
+				'users'=>array('@'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array('index','view','invitar','create','update'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -56,6 +60,16 @@ class ActosController extends Controller
 		));
 	}
 
+    public function actionInvitar($id)
+	{
+        $model_personas=new Personas('search');
+        $model_actos=Actos::model()->findByPk($id);
+        $this->render('invitar', array ('model_personas'=>$model_personas,'model_actos'=>$model_actos));
+	}
+    public function actionInvi(){
+
+        $_POST[""];
+    }
 	/**
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.

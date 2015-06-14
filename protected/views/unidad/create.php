@@ -3,16 +3,16 @@
 /* @var $model Unidad */
 
 $this->breadcrumbs=array(
-	'Unidads'=>array('index'),
-	'Create',
+	'Unidades'=>array('index'),
+	'Nueva',
 );
 
 $this->menu=array(
-	array('label'=>'List Unidad', 'url'=>array('index')),
-	array('label'=>'Manage Unidad', 'url'=>array('admin')),
+	array('label'=>'Ver Unidades', 'url'=>array('index')),
+	array('label'=>'Adminstrar Unidades', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Create Unidad</h1>
+<h1>Nueva Unidad</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

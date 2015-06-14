@@ -18,7 +18,9 @@
 
 	<div class="row">
 		<?php echo $form->label($model,'asunto'); ?>
-		<?php echo $form->textField($model,'asunto',array('size'=>45,'maxlength'=>45)); ?>
+		<?php echo $form->dropDownList($model, 'asunto',
+              $model->genderOptions,
+              array('empty' => '--Selecciona un Asunto--'));?>
 	</div>
 
 	<div class="row">
@@ -28,7 +30,33 @@
 
 	<div class="row">
 		<?php echo $form->label($model,'fecha'); ?>
-		<?php echo $form->textField($model,'fecha'); ?>
+			  <?php
+  $this->widget('zii.widgets.jui.CJuiDatePicker', array(
+   'model'=>$model,
+   'attribute'=>'fecha',
+   'value'=>date("d-m-Y", strtotime($model->fecha)),
+   'language' => 'es',
+   'htmlOptions' => array('readonly'=>"readonly"),
+   'options'=>array(
+    'autoSize'=>true,
+    'defaultDate'=>date('d-m-Y',time()),
+    'dateFormat'=>'dd-mm-yy',
+    //'buttonImage'=>Yii::app()->baseUrl.'/images/calendario.jpg',
+    //'buttonImageOnly'=>true,
+    //'buttonText'=>'Fecha',
+    'selectOtherMonths'=>true,
+    'showAnim'=>'slide',
+    'showButtonPanel'=>true,
+    'showOn'=>'button',
+    'showOtherMonths'=>true,
+    'changeMonth' => 'true',
+    'changeYear' => 'true',
+    'minDate'=>'-20Y',
+    'maxDate'=> "+20Y",
+    ),
+  ));
+
+ ?>
 	</div>
 
 	<div class="row">

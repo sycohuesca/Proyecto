@@ -3,16 +3,16 @@
 /* @var $dataProvider CActiveDataProvider */
 
 $this->breadcrumbs=array(
-	'Unidads',
+	'Unidades',
 );
 
 $this->menu=array(
-	array('label'=>'Create Unidad', 'url'=>array('create')),
-	array('label'=>'Manage Unidad', 'url'=>array('admin')),
+	array('label'=>'Nueva Unidad', 'url'=>array('create')),
+	array('label'=>'Administar Unidades', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Unidads</h1>
+<h1>Unidades</h1>
 
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,

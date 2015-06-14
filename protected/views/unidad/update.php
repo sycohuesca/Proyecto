@@ -3,16 +3,16 @@
 /* @var $model Unidad */
 
 $this->breadcrumbs=array(
-	'Unidads'=>array('index'),
+	'Unidades'=>array('index'),
 	$model->id_unidad=>array('view','id'=>$model->id_unidad),
-	'Update',
+	'Actualizar',
 );
 
 $this->menu=array(
-	array('label'=>'List Unidad', 'url'=>array('index')),
-	array('label'=>'Create Unidad', 'url'=>array('create')),
-	array('label'=>'View Unidad', 'url'=>array('view', 'id'=>$model->id_unidad)),
-	array('label'=>'Manage Unidad', 'url'=>array('admin')),
+	array('label'=>'Ver Unidades', 'url'=>array('index')),
+	array('label'=>'Nueva Unidad', 'url'=>array('create')),
+	array('label'=>'Ver Unidad', 'url'=>array('view', 'id'=>$model->id_unidad)),
+	array('label'=>'Adminstrar Unidades', 'url'=>array('admin')),
 );
 ?>
 

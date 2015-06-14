@@ -3,13 +3,13 @@
 /* @var $model Unidad */
 
 $this->breadcrumbs=array(
-	'Unidads'=>array('index'),
-	'Manage',
+	'Unidades'=>array('index'),
+	'Lista',
 );
 
 $this->menu=array(
-	array('label'=>'List Unidad', 'url'=>array('index')),
-	array('label'=>'Create Unidad', 'url'=>array('create')),
+	array('label'=>'Ver Unidades', 'url'=>array('index')),
+	array('label'=>'Nueva Unidad', 'url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -26,14 +26,11 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Manage Unidads</h1>
+<h1>Adminsitar Unidades</h1>
 
-<p>
-You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
-or <b>=</b>) at the beginning of each of your search values to specify how the comparison should be done.
-</p>
 
-<?php echo CHtml::link('Advanced Search','#',array('class'=>'search-button')); ?>
+
+<?php echo CHtml::link('Busqueda avanzada','#',array('class'=>'search-button')); ?>
 <div class="search-form" style="display:none">
 <?php $this->renderPartial('_search',array(
 	'model'=>$model,
@@ -45,13 +42,15 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'columns'=>array(
-		'id_unidad',
+
 		'nombre',
 		'direccion',
-		'cp',
+
 		'localidad',
 		'comunidad',
+        'cp',
 		/*
+        'id_unidad',
 		'provincia',
 		'telefono',
 		'cooporativo',

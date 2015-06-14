@@ -36,7 +36,7 @@ class Unidad extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('nombre, direccion, cp, localidad, comunidad, provincia, telefono, cooporativo, email', 'required'),
+			array('nombre', 'required'),
 			array('cp, telefono, cooporativo', 'numerical', 'integerOnly'=>true),
 			array('nombre, direccion, localidad, provincia, email', 'length', 'max'=>45),
 			array('comunidad', 'length', 'max'=>30),

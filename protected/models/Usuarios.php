@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 /**
  * This is the model class for table "usuarios".
@@ -6,8 +6,8 @@
  * The followings are the available columns in table 'usuarios':
  * @property integer $id_usuario
  * @property string $usuario
- * @property string $contraseña
- * @property string $correoElectronico
+ * @property string $password
+ * @property string $email
  * @property string $fecha_alta
  * @property integer $privilegios
  * @property string $observaciones
@@ -15,6 +15,8 @@
  */
 class Usuarios extends CActiveRecord
 {
+
+
 	/**
 	 * @return string the associated database table name
 	 */
@@ -31,12 +33,11 @@ class Usuarios extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('usuario, contraseña, correoElectronico, fecha_alta, privilegios, observaciones, actualizado', 'required'),
-			array('privilegios', 'numerical', 'integerOnly'=>true),
-			array('usuario, contraseña, correoElectronico', 'length', 'max'=>45),
+			array('usuario, password, privilegios, email','required'),
+			array('observaciones, fecha_alta', 'length', 'max'=>200),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id_usuario, usuario, contraseña, correoElectronico, fecha_alta, privilegios, observaciones, actualizado', 'safe', 'on'=>'search'),
+			array('id_usuario, usuario, password, email, fecha_alta, privilegios, observaciones, actualizado', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -59,8 +60,8 @@ class Usuarios extends CActiveRecord
 		return array(
 			'id_usuario' => 'Id Usuario',
 			'usuario' => 'Usuario',
-			'contraseña' => 'Contrase�a',
-			'correoElectronico' => 'Correo Electronico',
+			'password' => 'Password',
+            'email' => 'Email',
 			'fecha_alta' => 'Fecha Alta',
 			'privilegios' => 'Privilegios',
 			'observaciones' => 'Observaciones',
@@ -88,8 +89,8 @@ class Usuarios extends CActiveRecord
 
 		$criteria->compare('id_usuario',$this->id_usuario);
 		$criteria->compare('usuario',$this->usuario,true);
-		$criteria->compare('contraseña',$this->contraseña,true);
-		$criteria->compare('correoElectronico',$this->correoElectronico,true);
+		$criteria->compare('password',$this->password,true);
+		$criteria->compare('email',$this->email,true);
 		$criteria->compare('fecha_alta',$this->fecha_alta,true);
 		$criteria->compare('privilegios',$this->privilegios);
 		$criteria->compare('observaciones',$this->observaciones,true);
