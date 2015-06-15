@@ -70,6 +70,7 @@ class UsuariosController extends Controller
 		if(isset($_POST['Usuarios']))
 		{
 			$model->attributes=$_POST['Usuarios'];
+            $model["fecha_alta"]=$model->getFecha();
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id_usuario));
 		}

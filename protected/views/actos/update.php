@@ -14,6 +14,7 @@ $this->menu=array(
 	array('label'=>'Ver Acto', 'url'=>array('view', 'id'=>$model->id_acto)),
 	array('label'=>'Administrar Actos', 'url'=>array('admin')),
     array('label'=>'Invitar', 'url'=>array('invitar','id'=>$model->id_acto)),
+    array('label'=>'Asistentes', 'url'=>array('invitado/admin')),
 );
 ?>
 

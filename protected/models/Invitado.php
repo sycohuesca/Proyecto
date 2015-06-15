@@ -15,6 +15,7 @@
  */
 class Invitado extends CActiveRecord
 {
+    public $Asunto, $Lugar, $Fecha, $Nombre, $Apellidos, $Localidad;
 	/**
 	 * @return string the associated database table name
 	 */

@@ -13,7 +13,7 @@ $this->menu=array(
 	array('label'=>'Actualizar Acto', 'url'=>array('update', 'id'=>$model->id_acto)),
 	array('label'=>'Eliminar Acto', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id_acto),'confirm'=>'Estas seguro que quieres eliminar este acto ?')),
 	array('label'=>'Administar Actos', 'url'=>array('admin')),
-    array('label'=>'Invitar', 'url'=>array('invitar')),
+    array('label'=>'Asistentes', 'url'=>array('invitado/admin')),
 );
 ?>
 

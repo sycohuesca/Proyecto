@@ -8,11 +8,11 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Invitado', 'url'=>array('index')),
-	array('label'=>'Manage Invitado', 'url'=>array('admin')),
+	array('label'=>'Lista Asistentes', 'url'=>array('index')),
+	array('label'=>'Administar Asistentes', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Create Invitado</h1>
+<h1>Crear Asistentes</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

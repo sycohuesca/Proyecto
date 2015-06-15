@@ -37,7 +37,7 @@ $resultado=Yii::app()->db->createCommand($sql)->queryScalar();
 echo ($resultado)
 
 ;?><br />
-	<?php echo CHtml::link('Invitar',array('invitar','id'=>$data->id_acto)); ?>
+
 
 <?php
 /* echo CHtml::encode($data->getAttributeLabel('observaciones')); ?>:</b>

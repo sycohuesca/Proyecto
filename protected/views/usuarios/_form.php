@@ -39,21 +39,14 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'privilegios'); ?>
-		<?php echo $form->textField($model,'privilegios',array('size'=>45,'maxlength'=>45)); ?>
+		<?php echo $form->dropDownList($model,'privilegios',array('administrador'=>'Administrador','usuario'=>'Usuario')); ?>
 		<?php echo $form->error($model,'privilegios'); ?>
 	</div>
 
 
 
 <div class="row">
-	<?php
 
-if ($model->isNewRecord){
-  echo date('d-m-Y',time());
-    echo $form->hiddenField($model,'fecha_actual',array('type'=>'hidden','value'=>date('d-m-Y',time())));
-
-}
-?>
     </div>
 
 	<div class="row">

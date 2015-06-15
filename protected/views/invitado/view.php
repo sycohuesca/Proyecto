@@ -8,7 +8,7 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Invitado', 'url'=>array('index')),
+	array('label'=>'Lista Asistentes', 'url'=>array('index')),
 	array('label'=>'Create Invitado', 'url'=>array('create')),
 	array('label'=>'Update Invitado', 'url'=>array('update', 'id'=>$model->id_invitado)),
 	array('label'=>'Delete Invitado', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id_invitado),'confirm'=>'Are you sure you want to delete this item?')),

@@ -45,7 +45,6 @@ $('.search-form form').submit(function(){
 
 		'nombre',
 		'direccion',
-
 		'localidad',
 		'comunidad',
         'cp',

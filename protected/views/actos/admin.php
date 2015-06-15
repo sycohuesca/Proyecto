@@ -10,6 +10,7 @@ $this->breadcrumbs=array(
 $this->menu=array(
 	array('label'=>'Ver Actos', 'url'=>array('index')),
 	array('label'=>'Nuevo Acto', 'url'=>array('create')),
+    array('label'=>'Asistentes', 'url'=>array('invitar')),
 );
 
 Yii::app()->clientScript->registerScript('search', "

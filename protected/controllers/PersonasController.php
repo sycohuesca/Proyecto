@@ -1,6 +1,6 @@
 <?php
 
-class InvitadoController extends Controller
+class PersonasController extends Controller
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -28,8 +28,8 @@ class InvitadoController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view','formulario'),
-				'users'=>array('*'),
+				'actions'=>array('index','view'),
+				'users'=>array('@'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
 				'actions'=>array('create','update'),
@@ -55,22 +55,6 @@ class InvitadoController extends Controller
 			'model'=>$this->loadModel($id),
 		));
 	}
-    public function actionFormulario()
-	{
-        $model=new Invitado;
-
-		if(isset($_POST['Invitado']))
-		{
-			$model->attributes=$_POST['Invitado'];
-			if($model->save())
-				$this->redirect(array('index'));
-		}
-
-		$this->render('formulario',array(
-			'model'=>$model,
-		));
-	}
-
 
 	/**
 	 * Creates a new model.
@@ -78,16 +62,16 @@ class InvitadoController extends Controller
 	 */
 	public function actionCreate()
 	{
-		$model=new Invitado;
+		$model=new Personas;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Invitado']))
+		if(isset($_POST['Personas']))
 		{
-			$model->attributes=$_POST['Invitado'];
+			$model->attributes=$_POST['Personas'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id_invitado));
+				$this->redirect(array('view','id'=>$model->id_personas));
 		}
 
 		$this->render('create',array(
@@ -107,11 +91,11 @@ class InvitadoController extends Controller
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Invitado']))
+		if(isset($_POST['Personas']))
 		{
-			$model->attributes=$_POST['Invitado'];
+			$model->attributes=$_POST['Personas'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id_invitado));
+				$this->redirect(array('view','id'=>$model->id_personas));
 		}
 
 		$this->render('update',array(
@@ -138,7 +122,7 @@ class InvitadoController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('Invitado');
+		$dataProvider=new CActiveDataProvider('Personas');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
@@ -149,10 +133,10 @@ class InvitadoController extends Controller
 	 */
 	public function actionAdmin()
 	{
-		$model=new Invitado('search');
+		$model=new Personas('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['Invitado']))
-			$model->attributes=$_GET['Invitado'];
+		if(isset($_GET['Personas']))
+			$model->attributes=$_GET['Personas'];
 
 		$this->render('admin',array(
 			'model'=>$model,
@@ -163,12 +147,12 @@ class InvitadoController extends Controller
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
 	 * @param integer $id the ID of the model to be loaded
-	 * @return Invitado the loaded model
+	 * @return Personas the loaded model
 	 * @throws CHttpException
 	 */
 	public function loadModel($id)
 	{
-		$model=Invitado::model()->findByPk($id);
+		$model=Personas::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
@@ -176,11 +160,11 @@ class InvitadoController extends Controller
 
 	/**
 	 * Performs the AJAX validation.
-	 * @param Invitado $model the model to be validated
+	 * @param Personas $model the model to be validated
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='invitado-form')
+		if(isset($_POST['ajax']) && $_POST['ajax']==='personas-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();

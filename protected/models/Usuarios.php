@@ -16,7 +16,10 @@
 class Usuarios extends CActiveRecord
 {
 
-
+public function getFecha(){
+    $fecha=date('d-m-Y',time());
+    return $fecha;
+}
 	/**
 	 * @return string the associated database table name
 	 */
@@ -34,10 +37,10 @@ class Usuarios extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('usuario, password, privilegios, email','required'),
-			array('observaciones, fecha_alta', 'length', 'max'=>200),
+			array('observaciones', 'length', 'max'=>200),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id_usuario, usuario, password, email, fecha_alta, privilegios, observaciones, actualizado', 'safe', 'on'=>'search'),
+			array('id_usuario, usuario, password, email, privilegios, observaciones', 'safe', 'on'=>'search'),
 		);
 	}
 

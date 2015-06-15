@@ -60,16 +60,18 @@ class ActosController extends Controller
 		));
 	}
 
-    public function actionInvitar($id)
+    public function actionInvitar()
 	{
-        $model_personas=new Personas('search');
-        $model_actos=Actos::model()->findByPk($id);
-        $this->render('invitar', array ('model_personas'=>$model_personas,'model_actos'=>$model_actos));
-	}
-    public function actionInvi(){
+     $model=new Invitado('search');
+		$model->unsetAttributes();  // clear any default values
+		if(isset($_GET['Invitado']))
+			$model->attributes=$_GET['Invitado'];
 
-        $_POST[""];
-    }
+		$this->render('admin',array(
+			'model'=>$model,
+		));
+	}
+
 	/**
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
