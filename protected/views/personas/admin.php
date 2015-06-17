@@ -28,48 +28,14 @@ $('.search-form form').submit(function(){
 
 <h1>Administar Personas</h1>
 
-
 <?php echo CHtml::link('Busqueda Avanzada','#',array('class'=>'search-button')); ?>
 <div class="search-form" style="display:none">
-<?php $this->renderPartial('_search',array(
+<?php $this->renderPartial('/personas/_search',array(
 	'model'=>$model,
 )); ?>
-</div><!-- search-form -->
-
-<?php $this->widget('zii.widgets.grid.CGridView', array(
-	'id'=>'personas-grid',
-	'dataProvider'=>$model->search(),
-	'filter'=>$model,
-	'columns'=>array(
-
-		'empleo',
-		'nombre',
-		'apellidos',
-		'dni',
-        array(
-            'name'=>'Unidad',
-            'value'=>'$data->idUnidad->nombre',
-        ),
-        'comunidad',
-
-        'localidad',
-		/*
-		'cargos',
-		'email',
-		'direccion',
-		'localidad',
-		'provincia',
-		'cp',
-		'comunidad',
-		'movil',
-		'cooporativo',
-		'toma_posesion',
-		'fecha_de_cese',
-		'observaciones',
-		'id_unidad',
-		*/
-		array(
-			'class'=>'CButtonColumn',
-		),
-	),
+<!-- search-form -->
+<?php $this->renderPartial('_admin',array(
+	'model'=>$model,
 )); ?>
+
+

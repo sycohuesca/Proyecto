@@ -55,22 +55,13 @@ class ActosController extends Controller
 	 */
 	public function actionView($id)
 	{
+        $model=$this->loadModel($id);
 		$this->render('view',array(
-			'model'=>$this->loadModel($id),
+            'model'=>$model,
 		));
 	}
 
-    public function actionInvitar()
-	{
-     $model=new Invitado('search');
-		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['Invitado']))
-			$model->attributes=$_GET['Invitado'];
 
-		$this->render('admin',array(
-			'model'=>$model,
-		));
-	}
 
 	/**
 	 * Creates a new model.

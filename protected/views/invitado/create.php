@@ -8,11 +8,21 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Lista Asistentes', 'url'=>array('index')),
-	array('label'=>'Administar Asistentes', 'url'=>array('admin')),
+	array('label'=>'Lista Innvitados', 'url'=>array('index')),
+	array('label'=>'Administar Invitados', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Crear Asistentes</h1>
+<h1>Nuevo Invitado</h1>
 
-<?php $this->renderPartial('_form', array('model'=>$model)); ?>
+
+
+<?php
+
+$personas=new Personas('search');
+
+ $this->renderPartial('/personas/_admin',array(
+	'model'=>$personas,
+));
+
+?>

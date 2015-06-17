@@ -15,7 +15,7 @@
  */
 class Invitado extends CActiveRecord
 {
-    public $Asunto, $Lugar, $Fecha, $Nombre, $Apellidos, $Localidad;
+    public $asunt, $lugar, $fecha, $nombre, $apellidos;
 	/**
 	 * @return string the associated database table name
 	 */
@@ -34,10 +34,11 @@ class Invitado extends CActiveRecord
 		return array(
 			array('id_acto, id_persona', 'required'),
 			array('id_acto, id_persona', 'numerical', 'integerOnly'=>true),
-			array('asiste', 'length', 'max'=>2),
+			array('asiste', 'length', 'max'=>3),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id_invitado, id_acto, id_persona, asiste', 'safe', 'on'=>'search'),
+			array('id_invitado, asunt, lugar, fecha, nombre, apellidos,
+            id_acto, id_persona, asiste', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -64,6 +65,11 @@ class Invitado extends CActiveRecord
 			'id_acto' => 'Id Acto',
 			'id_persona' => 'Id Persona',
 			'asiste' => 'Asiste',
+            'asunt'=>'Asunto',
+            'lugar'=>"Lugar",
+            'fecha'=>'Fecha',
+            'nombre'=>'Nombre',
+            'apellidos'=>'Apellidos',
 		);
 	}
 
@@ -84,14 +90,21 @@ class Invitado extends CActiveRecord
 		// @todo Please modify the following code to remove attributes that should not be searched.
 
 		$criteria=new CDbCriteria;
+        $criteria->with = array('idActo','idPersona');
 
 		$criteria->compare('id_invitado',$this->id_invitado);
 		$criteria->compare('id_acto',$this->id_acto);
 		$criteria->compare('id_persona',$this->id_persona);
 		$criteria->compare('asiste',$this->asiste,true);
+        $criteria->compare('idActo.asunto', $this->asunt, true );
+        $criteria->compare('idActo.fecha', $this->fecha, true );
+        $criteria->compare('idActo.lugar', $this->lugar, true );
+        $criteria->compare('idPersona.nombre', $this->nombre, true );
+        $criteria->compare('idPersona.apellidos', $this->apellidos, true );
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
+
 		));
 	}
 
@@ -105,4 +118,10 @@ class Invitado extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+
+    public static function getPersonas($idActo){
+        $personas=Invitado::model()->findAll(array('condition'=>"id_acto=$idActo"));
+
+        return $personas;
+    }
 }

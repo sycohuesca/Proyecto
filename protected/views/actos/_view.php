@@ -38,7 +38,7 @@ echo ($resultado)
 
 ;?><br />
 
-
+<?php echo CHtml::link('Ver Acto',array('view', 'id'=>$data->id_acto)); ?>
 <?php
 /* echo CHtml::encode($data->getAttributeLabel('observaciones')); ?>:</b>
 	<?php echo CHtml::encode($data->observaciones); ?>

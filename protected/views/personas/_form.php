@@ -110,10 +110,11 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'toma_posesion'); ?>
-				  <?php
+
+			  <?php
   $this->widget('zii.widgets.jui.CJuiDatePicker', array(
    'model'=>$model,
-   'attribute'=>'toma_posesion',
+   'attribute'=>'fecha_de_cese',
    'value'=>date("d-m-Y", strtotime($model->toma_posesion)),
    'language' => 'es',
    'htmlOptions' => array('readonly'=>"readonly"),
@@ -132,7 +133,6 @@
   ));
 
  ?>
-
 	</div>
 
 	<div class="row">

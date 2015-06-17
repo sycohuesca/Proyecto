@@ -3,19 +3,21 @@
 /* @var $dataProvider CActiveDataProvider */
 
 $this->breadcrumbs=array(
-	'Asistentes',
+	'Invitados',
 );
 
 $this->menu=array(
-	array('label'=>'Nuevo Asistente', 'url'=>array('create')),
-	array('label'=>'Administar Asistentes', 'url'=>array('admin')),
-    array('label'=>'Administar Asistentes', 'url'=>array('formulario')),
+	array('label'=>'Nuevo Invitado', 'url'=>array('create')),
+	array('label'=>'Administar Invitados', 'url'=>array('admin')),
+
 );
 ?>
 
-<h1>Asistentes</h1>
+<h1>Invitados</h1>
 
-<?php $this->widget('zii.widgets.CListView', array(
+<?php
+
+$this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,
 	'itemView'=>'_view',
 )); ?>

@@ -14,6 +14,7 @@ $this->menu=array(
 	array('label'=>'Eliminar Acto', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id_acto),'confirm'=>'Estas seguro que quieres eliminar este acto ?')),
 	array('label'=>'Administar Actos', 'url'=>array('admin')),
     array('label'=>'Asistentes', 'url'=>array('invitado/admin')),
+     array('label'=>'Nuevo Invitado', 'url'=>array('invitado/create','idActo'=>$model->id_acto)),
 );
 ?>
 
@@ -37,8 +38,22 @@ echo ($resultado)
         ),
 		'hora',
 		'uniformidad',
-		'observaciones',
+
 		'presidido_por',
 		'material_necesario',
+        'observaciones',
 	),
 )); ?>
+<h2>Invitados.</h2>
+<ul>
+<?php
+$personas=Invitado::getPersonas($model->id_acto);
+
+foreach($personas as $data){
+    echo '<li>'.$data->idPersona->empleo." ";
+    echo $data->idPersona->nombre." ";
+    echo $data->idPersona->apellidos.'</li>';
+}
+	 ?>
+</ul>
+

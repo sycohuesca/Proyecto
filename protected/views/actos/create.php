@@ -10,7 +10,8 @@ $this->breadcrumbs=array(
 $this->menu=array(
 	array('label'=>'Ver Actos', 'url'=>array('index')),
 	array('label'=>'Administrar Actos', 'url'=>array('admin')),
-    array('label'=>'Asistentes', 'url'=>array('invitado/admin')),
+    array('label'=>'Invitados', 'url'=>array('invitado/admin')),
+     array('label'=>'Nuevo Invitado', 'url'=>array('invitado/admin')),
 );
 ?>
 

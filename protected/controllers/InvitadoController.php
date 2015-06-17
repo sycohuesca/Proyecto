@@ -28,7 +28,7 @@ class InvitadoController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view','formulario'),
+				'actions'=>array('index','view','formulario','borrar'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -76,7 +76,7 @@ class InvitadoController extends Controller
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 */
-	public function actionCreate()
+	public function actionCreate($idActo=null)
 	{
 		$model=new Invitado;
 
@@ -91,7 +91,7 @@ class InvitadoController extends Controller
 		}
 
 		$this->render('create',array(
-			'model'=>$model,
+			'model'=>$model,'idActo'=>$idActo,
 		));
 	}
 
@@ -107,17 +107,22 @@ class InvitadoController extends Controller
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Invitado']))
-		{
+		if(isset($_POST['Invitado'])){
+
 			$model->attributes=$_POST['Invitado'];
-			if($model->save())
+
+			if($model->save()){
 				$this->redirect(array('view','id'=>$model->id_invitado));
-		}
+            }
+            else{
+              $this->redirect(array('admin'));
+            }
+        }
 
 		$this->render('update',array(
 			'model'=>$model,
 		));
-	}
+    }
 
 	/**
 	 * Deletes a particular model.
@@ -143,7 +148,13 @@ class InvitadoController extends Controller
 			'dataProvider'=>$dataProvider,
 		));
 	}
-
+public function actionBorrar(){
+       if(isset($_POST['items']))
+         foreach($_POST['items'] as $id){
+              $some = Invitado::model()->findByPk($id);
+              $some->delete();
+         }
+   }
 	/**
 	 * Manages all models.
 	 */
@@ -153,6 +164,7 @@ class InvitadoController extends Controller
 		$model->unsetAttributes();  // clear any default values
 		if(isset($_GET['Invitado']))
 			$model->attributes=$_GET['Invitado'];
+
 
 		$this->render('admin',array(
 			'model'=>$model,

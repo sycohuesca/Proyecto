@@ -30,6 +30,9 @@ $this->menu=array(
 		'fecha_alta' ,
 		'privilegios',
 		'observaciones',
-		'actualizado',
+		array(
+		'name'=>'actualizado',
+            'type'=>'raw',
+		'value'=>date("d-m-Y \a \l\a\s H:m:s", strtotime($model->actualizado))),
 	),
 )); ?>

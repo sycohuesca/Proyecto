@@ -10,7 +10,7 @@ $this->breadcrumbs=array(
 $this->menu=array(
 	array('label'=>'Ver Actos', 'url'=>array('index')),
 	array('label'=>'Nuevo Acto', 'url'=>array('create')),
-    array('label'=>'Asistentes', 'url'=>array('invitar')),
+    array('label'=>'Invitados', 'url'=>array('invitar/admin')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -38,27 +38,7 @@ $('.search-form form').submit(function(){
 )); ?>
 </div><!-- search-form -->
 
-<?php $this->widget('zii.widgets.grid.CGridView', array(
-	'id'=>'actos-grid',
-	'dataProvider'=>$model->search(),
-	'filter'=>$model,
-	'columns'=>array(
-		'asunto',
-        'presidido_por',
-		'lugar',
-		 array(
-         'name'=>'fecha',
-            'value'=> $model->fecha,
-        ),
-		'hora',
-		'uniformidad',
-		/*
-		'observaciones',
-		'presidido_por',
-		'material_necesario',
-		*/
-		array(
-			'class'=>'CButtonColumn',
-		),
-	),
+<?php $this->renderPartial('_admin',array(
+	'model'=>$model,
 )); ?>
+
