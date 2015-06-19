@@ -10,7 +10,7 @@ $this->breadcrumbs=array(
 $this->menu=array(
 	array('label'=>'Ver Actos', 'url'=>array('index')),
 	array('label'=>'Nuevo Acto', 'url'=>array('create')),
-    array('label'=>'Invitados', 'url'=>array('invitar/admin')),
+    array('label'=>'Invitados', 'url'=>array('invitado/admin')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -33,12 +33,8 @@ $('.search-form form').submit(function(){
 
 <?php echo CHtml::link('Busqueda avanzada','#',array('class'=>'search-button')); ?>
 <div class="search-form" style="display:none">
-<?php $this->renderPartial('_search',array(
-	'model'=>$model,
-)); ?>
+<?php $this->renderPartial('_search',array('model'=>$model,)); ?>
 </div><!-- search-form -->
 
-<?php $this->renderPartial('_admin',array(
-	'model'=>$model,
-)); ?>
+<?php $this->renderPartial('_admin',array('model'=>$model,)); ?>
 

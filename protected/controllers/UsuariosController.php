@@ -32,11 +32,11 @@ class UsuariosController extends Controller
 				'users'=>array('@'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array('create'),
 				'users'=>array('admin'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete'),
+				'actions'=>array('admin','delete','update'),
 				'users'=>array('admin'),
 			),
 			array('deny',  // deny all users
@@ -71,6 +71,7 @@ class UsuariosController extends Controller
 		{
 			$model->attributes=$_POST['Usuarios'];
             $model["fecha_alta"]=$model->getFecha();
+            $model->password=md5($model->password);
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id_usuario));
 		}
@@ -95,6 +96,7 @@ class UsuariosController extends Controller
 		if(isset($_POST['Usuarios']))
 		{
 			$model->attributes=$_POST['Usuarios'];
+             $model->password=md5($model->password);
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id_usuario));
 		}

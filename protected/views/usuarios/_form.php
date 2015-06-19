@@ -39,7 +39,7 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'privilegios'); ?>
-		<?php echo $form->dropDownList($model,'privilegios',array('administrador'=>'Administrador','usuario'=>'Usuario')); ?>
+		<?php echo $form->dropDownList($model,'privilegios',array('usuario'=>'Usuario','administrador'=>'Administrador')); ?>
 		<?php echo $form->error($model,'privilegios'); ?>
 	</div>
 

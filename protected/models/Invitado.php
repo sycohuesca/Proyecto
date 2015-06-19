@@ -41,6 +41,18 @@ class Invitado extends CActiveRecord
             id_acto, id_persona, asiste', 'safe', 'on'=>'search'),
 		);
 	}
+    public function repetidos($idActo, $idPerosna){
+
+     $resul=Invitado::model()->findAll("id_acto=$idActo");
+$salida=true;
+foreach($resul as $re){
+    if ($re->id_persona==40){
+        $salida=false;
+    }
+}
+return $salida;
+
+    }
 
 	/**
 	 * @return array relational rules.

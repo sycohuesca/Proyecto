@@ -28,8 +28,8 @@ class InvitadoController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view','formulario','borrar'),
-				'users'=>array('*'),
+				'actions'=>array('index','view','invitar',),
+				'users'=>array('@'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
 				'actions'=>array('create','update'),
@@ -55,44 +55,40 @@ class InvitadoController extends Controller
 			'model'=>$this->loadModel($id),
 		));
 	}
-    public function actionFormulario()
-	{
-        $model=new Invitado;
+    public function actionInvitar(){
+        $model=new Invitado();
+        $idActo=$_POST['idActo'];
+        $items=$_POST['persona'];
+         if ($model->repetidos($idActo,$items)){
+             $model->id_acto=$idActo;
+            $model->id_persona=$items;
+                $model->save();
+            }
 
-		if(isset($_POST['Invitado']))
-		{
-			$model->attributes=$_POST['Invitado'];
-			if($model->save())
-				$this->redirect(array('index'));
-		}
 
-		$this->render('formulario',array(
-			'model'=>$model,
-		));
-	}
+    }
 
 
 	/**
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 */
-	public function actionCreate($idActo=null)
+	public function actionCreate($idActo=null,$items=null)
 	{
 		$model=new Invitado;
+
+
+           $this->render('create',array(
+			'model'=>$model,'idActo'=>$idActo,
+		));
+
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Invitado']))
-		{
-			$model->attributes=$_POST['Invitado'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->id_invitado));
-		}
 
-		$this->render('create',array(
-			'model'=>$model,'idActo'=>$idActo,
-		));
+
+
 	}
 
 	/**
@@ -148,13 +144,7 @@ class InvitadoController extends Controller
 			'dataProvider'=>$dataProvider,
 		));
 	}
-public function actionBorrar(){
-       if(isset($_POST['items']))
-         foreach($_POST['items'] as $id){
-              $some = Invitado::model()->findByPk($id);
-              $some->delete();
-         }
-   }
+
 	/**
 	 * Manages all models.
 	 */

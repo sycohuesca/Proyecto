@@ -27,15 +27,19 @@ $('.search-form form').submit(function(){
 ?>
 
 <h1>Administar Personas</h1>
-
 <?php echo CHtml::link('Busqueda Avanzada','#',array('class'=>'search-button')); ?>
 <div class="search-form" style="display:none">
-<?php $this->renderPartial('/personas/_search',array(
+<?php $this->renderPartial('_search',array(
 	'model'=>$model,
 )); ?>
+</div>
 <!-- search-form -->
+
+
 <?php $this->renderPartial('_admin',array(
 	'model'=>$model,
 )); ?>
+
+
 
 

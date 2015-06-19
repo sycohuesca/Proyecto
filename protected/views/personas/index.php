@@ -1,10 +1,8 @@
 <?php
 /* @var $this PersonasController */
-/* @var $dataProvider CActiveDataProvider */
-
-$this->breadcrumbs=array(
-	'Personas',
-);
+/* @var $dataProvider CActiveDataProvider
+*/
+$this->breadcrumbs=array('Personas');
 
 $this->menu=array(
 	array('label'=>'Nueva Persona', 'url'=>array('create')),
@@ -15,7 +13,9 @@ $this->menu=array(
 
 <h1>Personas</h1>
 
-<?php $this->widget('zii.widgets.CListView', array(
+<?php
+
+$this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,
 	'itemView'=>'_view',
 )); ?>

@@ -1,10 +1,11 @@
 
-</div>
+
 
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'personas-grid',
 	'dataProvider'=>$model->search(),
+    'selectableRows'=>2,
 	'filter'=>$model,
 	'columns'=>array(
 

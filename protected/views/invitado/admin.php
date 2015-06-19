@@ -4,12 +4,12 @@
 
 $this->breadcrumbs=array(
 	'Invitados'=>array('index'),
-	'Asistentes',
+	'Administrar',
 );
 
 $this->menu=array(
 	array('label'=>'Listar Invitado', 'url'=>array('index')),
-	array('label'=>'Nuevo Invitado', 'url'=>array('create')),
+	array('label'=>'Nuevo Invitado', 'url'=>array('actos/admin')),
 );
 
 ?>

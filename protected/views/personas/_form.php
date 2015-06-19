@@ -114,7 +114,7 @@
 			  <?php
   $this->widget('zii.widgets.jui.CJuiDatePicker', array(
    'model'=>$model,
-   'attribute'=>'fecha_de_cese',
+   'attribute'=>'toma_posesion',
    'value'=>date("d-m-Y", strtotime($model->toma_posesion)),
    'language' => 'es',
    'htmlOptions' => array('readonly'=>"readonly"),

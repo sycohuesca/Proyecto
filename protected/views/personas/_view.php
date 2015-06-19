@@ -4,13 +4,13 @@
 ?>
 
 <div class="view">
-
-
-	<b><?php echo CHtml::encode($data->tratamiento); ?>
+<b><?php echo CHtml::encode($data->tratamiento); ?>
         <?php echo CHtml::encode($data->empleo); ?>
         <?php echo CHtml::encode($data->nombre); ?>
         <?php echo CHtml::encode($data->apellidos); ?></b>
 	<br />
+
+
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('dni')); ?>:</b>
 	<?php echo CHtml::encode($data->dni); ?>
@@ -37,6 +37,7 @@
     <b>Unidad :</b>
 	<?php echo CHtml::encode($data->idUnidad->nombre); ?>
 	<br />
+	<?php echo CHtml::link('Ver', array('view', 'id'=>$data->id_personas)); ?>
 	<?php /*
     <b><?php echo CHtml::encode($data->getAttributeLabel('id_personas')); ?>:</b>
 	<?php echo CHtml::link(CHtml::encode($data->id_personas), array('view', 'id'=>$data->id_personas)); ?>

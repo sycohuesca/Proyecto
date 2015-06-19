@@ -4,11 +4,11 @@
 
 $this->breadcrumbs=array(
 	'Invitados'=>array('index'),
-	'Create',
+	'Nuevo Invitado',
 );
 
 $this->menu=array(
-	array('label'=>'Lista Innvitados', 'url'=>array('index')),
+	array('label'=>'Lista Invitados', 'url'=>array('index')),
 	array('label'=>'Administar Invitados', 'url'=>array('admin')),
 );
 ?>
@@ -16,6 +16,18 @@ $this->menu=array(
 <h1>Nuevo Invitado</h1>
 
 
+<script type="text/javascript">
+   function pulsar (){
+       alert("Usuarios no invitados guardados.");
+  var datosm = $('#personas-grid').keepSelectionData();
+$.each(datosm, function( index, value ) {
+  $.ajax({ url: "invitar" , type: 'post', data: { idActo:<?php echo $idActo;?>,persona: value} });
+
+  });
+
+   };
+
+</script>
 
 <?php
 
@@ -25,4 +37,11 @@ $personas=new Personas('search');
 	'model'=>$personas,
 ));
 
+$dummy = new EKeepSelection('#personas-grid');
+
+
+
 ?>
+<button id="boton" onclick="pulsar()">Guardar</button>
+
+

@@ -8,8 +8,7 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Lista Invitados', 'url'=>array('index')),
-	array('label'=>'Nuevo Invitado', 'url'=>array('create')),
+
 	array('label'=>'Actualizar Invitado', 'url'=>array('update', 'id'=>$model->id_invitado)),
 	array('label'=>'Eliminar Invitado', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id_invitado),'confirm'=>'Estas seguro de eliminar este Invitado?')),
 	array('label'=>'Administar Invitados', 'url'=>array('admin')),
@@ -17,6 +16,7 @@ $this->menu=array(
 ?>
 
 <h1>Ver Invitado nº <?php echo $model->id_invitado; ?></h1>
+
 
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,
@@ -50,3 +50,5 @@ $this->menu=array(
 		'asiste',
 	),
 )); ?>
+<br/>
+<?php echo CHtml::link('Ver', array('personas/view', 'id'=>$model->id_persona)); ?>

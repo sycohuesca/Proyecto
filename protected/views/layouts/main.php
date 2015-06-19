@@ -29,16 +29,19 @@
 	<div id="mainmenu">
 		<?php $this->widget('zii.widgets.CMenu',array(
 			'items'=>array(
+                array('label'=>'Inicio', 'url'=>array('/site/index')),
+
                 array('label'=>'Personas', 'url'=>array('/personas')),
                 array('label'=>'Actos', 'url'=>array('/actos')),
-                array('label'=>'Invitados', 'url'=>array('/invitado/index')),
+
                 array('label'=>'Unidades', 'url'=>array('/unidad/index')),
                 array('label'=>'Usuarios', 'url'=>array('/usuarios/index')),
-				array('label'=>'Home', 'url'=>array('/site/index')),
-				array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
+
+
 				array('label'=>'Contact', 'url'=>array('/site/contact')),
-				array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
-				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
+                 array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
+				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest),
+
 			),
 		)); ?>
 	</div><!-- mainmenu -->
