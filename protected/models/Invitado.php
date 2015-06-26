@@ -15,7 +15,7 @@
  */
 class Invitado extends CActiveRecord
 {
-    public $asunt, $lugar, $fecha, $nombre, $apellidos;
+    public $asunt, $cargos, $lugar, $empleo, $fecha, $nombre, $apellidos;
 	/**
 	 * @return string the associated database table name
 	 */
@@ -37,16 +37,16 @@ class Invitado extends CActiveRecord
 			array('asiste', 'length', 'max'=>3),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id_invitado, asunt, lugar, fecha, nombre, apellidos,
+			array('id_invitado, asunt, lugar, cargos, empleo, fecha, nombre, apellidos,
             id_acto, id_persona, asiste', 'safe', 'on'=>'search'),
 		);
 	}
-    public function repetidos($idActo, $idPerosna){
+    public function repetidos($idActo, $idPersona){
 
      $resul=Invitado::model()->findAll("id_acto=$idActo");
 $salida=true;
 foreach($resul as $re){
-    if ($re->id_persona==40){
+    if ($re->id_persona==$idPersona){
         $salida=false;
     }
 }
@@ -78,7 +78,9 @@ return $salida;
 			'id_persona' => 'Id Persona',
 			'asiste' => 'Asiste',
             'asunt'=>'Asunto',
-            'lugar'=>"Lugar",
+            'cargos'=>"Cargos",
+            'lugar'=>'Lugar',
+            'empleo'=>"Empleo",
             'fecha'=>'Fecha',
             'nombre'=>'Nombre',
             'apellidos'=>'Apellidos',
@@ -110,7 +112,9 @@ return $salida;
 		$criteria->compare('asiste',$this->asiste,true);
         $criteria->compare('idActo.asunto', $this->asunt, true );
         $criteria->compare('idActo.fecha', $this->fecha, true );
-        $criteria->compare('idActo.lugar', $this->lugar, true );
+         $criteria->compare('idActo.lugar', $this->lugar, true );
+        $criteria->compare('idPersona.cargos', $this->cargos, true );
+        $criteria->compare('idPersona.empleo', $this->empleo, true );
         $criteria->compare('idPersona.nombre', $this->nombre, true );
         $criteria->compare('idPersona.apellidos', $this->apellidos, true );
 

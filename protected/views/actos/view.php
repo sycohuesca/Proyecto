@@ -52,9 +52,9 @@ $personas=Invitado::getPersonas($model->id_acto);
 foreach($personas as $data){
     echo '<li>'.$data->idPersona->empleo." ";
     echo $data->idPersona->nombre." ";
-    echo $data->idPersona->apellidos.'</li>'
-   .CHtml::link('Ver',array('personas/view',
-                                         'id'=>$data->idPersona->id_personas));
+    echo $data->idPersona->apellidos;
+   echo '        '.CHtml::link('Ver',array('personas/view',
+                                         'id'=>$data->idPersona->id_personas)).'</li>';
 }
 	 ?>
 </ul>

@@ -36,9 +36,10 @@ $this->menu=array(
             'value'=>'$data->idActo->fecha',
         ),
         array(
-            'name'=>'lugar',
-            'value'=>'$data->idActo->lugar',
+            'name'=>'empleo',
+            'value'=>'$data->idPersona->empleo',
         ),
+
       array(
             'name'=>'nombre',
             'value'=>'$data->idPersona->nombre',
@@ -46,6 +47,10 @@ $this->menu=array(
          array(
             'name'=>'apellidos',
             'value'=>'$data->idPersona->apellidos',
+        ),
+          array(
+            'name'=>'cargos',
+            'value'=>'$data->idPersona->cargos',
         ),
 
 		'asiste',

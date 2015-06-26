@@ -56,7 +56,7 @@
 	</div>
 <div class="row">
 		<label>Unidad</label>
-		<?php echo $form->dropDownList($model,'id_unidad',CHtml::listData(Unidad::model()->findAll(), 'id_unidad', 'nombre'),array("empty"=>"Escoge Unidad o creala antes")); ?>
+		<?php echo $form->dropDownList($model,'id_unidad',CHtml::listData(Unidad::model()->findAll(), 'id_unidad', 'nombre')); ?>
 		 <?php echo CHtml::link('Nueva Unidad',array('Unidad/create')); ?>
 		<?php echo $form->error($model,'id_unidad'); ?>
 	</div>
