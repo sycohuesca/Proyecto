@@ -12,6 +12,12 @@
 ----------------------------------------------------------------------- */
 
 /* print.css */
+/* Ocultamos las partes de nuestra app que no querems que se impriman */
+#header, #mainmenu, .breadcrumbs, #sidebar, a, #footer {
+    visibility: hidden;
+    display: none;
+}
+
 body {line-height:1.5;font-family:"Helvetica Neue", Arial, Helvetica, sans-serif;color:#000;background:none;font-size:10pt;}
 .container {background:none;}
 hr {background:#ccc;color:#ccc;width:100%;height:2px;margin:2em 0;padding:0;border:none;}
