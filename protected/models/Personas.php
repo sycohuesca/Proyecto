@@ -6,6 +6,7 @@
  * The followings are the available columns in table 'personas':
  * @property integer $id_personas
  * @property string $tratamiento
+ * @property string $organismo
  * @property string $empleo
  * @property string $nombre
  * @property string $apellidos
@@ -51,12 +52,12 @@ public $Unidad;
 			array('tratamiento, empleo', 'length', 'max'=>20),
 			array('nombre, apellidos, email, localidad, provincia, comunidad', 'length', 'max'=>45),
 			array('dni', 'length', 'max'=>10),
-			array('cargos, direccion', 'length', 'max'=>100),
-            array('observaciones', 'length', 'max'=>400),
+			array('cargos,organismo, direccion', 'length', 'max'=>200),
+            array('observaciones', 'length', 'max'=>500),
 			array('toma_posesion, fecha_de_cese', 'length', 'max'=>25),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id_personas, tratamiento, empleo, nombre, apellidos, dni, cargos, email, direccion, localidad, provincia, cp, comunidad, movil, cooporativo, toma_posesion, fecha_de_cese, observaciones, id_unidad', 'safe', 'on'=>'search'),
+			array('id_personas, tratamiento, empleo, nombre, apellidos, dni, cargos, email, direccion, localidad, provincia, cp, comunidad, movil, organismo, cooporativo, toma_posesion, fecha_de_cese, observaciones, id_unidad', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -81,6 +82,7 @@ public $Unidad;
 		return array(
 			'id_personas' => 'Id Personas',
 			'tratamiento' => 'Tratamiento',
+            'organismo'=>'Organismo',
 			'empleo' => 'Empleo',
 			'nombre' => 'Nombre',
 			'apellidos' => 'Apellidos',
@@ -121,6 +123,7 @@ public $Unidad;
 
 		$criteria->compare('id_personas',$this->id_personas);
 		$criteria->compare('tratamiento',$this->tratamiento,true);
+        $criteria->compare('organismo',$this->organismo,true);
 		$criteria->compare('empleo',$this->empleo,true);
 		$criteria->compare('nombre',$this->nombre,true);
 		$criteria->compare('apellidos',$this->apellidos,true);

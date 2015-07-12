@@ -5,7 +5,7 @@
 
 <div class="view">
 
-	<b>Evento nº :</b>
+	<b>Invitado nº :</b>
 	<?php echo CHtml::link(CHtml::encode($data->id_invitado), array('view', 'id'=>$data->id_invitado)); ?>
 	<br />
 
@@ -18,13 +18,7 @@
 	<b>Fecha:</b>
 	<?php echo CHtml::encode($data->idActo->fecha); ?>
 	<br />
-		<b>Asistentes:</b>
-<?php
-$sql='SELECT count("id_persona") from invitado where id_acto='.$data->id_acto;
-$resultado=Yii::app()->db->createCommand($sql)->queryScalar();
-echo ($resultado)
 
-;?>
 
 	<?php
 /*echo CHtml::encode($data->getAttributeLabel('id_persona')); ?>:</b>

@@ -28,6 +28,7 @@ $this->menu=array(
 		'apellidos',
 		'dni',
 		'cargos',
+        'organismo',
         array(
         'name'=>'Unidad',
             'type'=>'raw',

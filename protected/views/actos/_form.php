@@ -77,7 +77,7 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'uniformidad'); ?>
-		<?php echo $form->textField($model,'uniformidad',array('size'=>45,'maxlength'=>45)); ?>
+		<?php echo $form->textArea($model,'uniformidad',array('rows'=>6, 'cols'=>50)); ?>
 		<?php echo $form->error($model,'uniformidad'); ?>
 	</div>
 

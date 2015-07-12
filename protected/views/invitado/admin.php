@@ -52,6 +52,10 @@ $this->menu=array(
             'name'=>'cargos',
             'value'=>'$data->idPersona->cargos',
         ),
+          array(
+            'name'=>'organismo',
+            'value'=>'$data->idPersona->organismo',
+        ),
 
 		'asiste',
 		array(

@@ -39,8 +39,9 @@ class Unidad extends CActiveRecord
 		return array(
 			array('nombre', 'required'),
 			array('cp, telefono, cooporativo', 'numerical', 'integerOnly'=>true),
-			array('nombre, direccion, localidad, provincia, email', 'length', 'max'=>45),
+			array('nombre, localidad, provincia, email', 'length', 'max'=>45),
 			array('comunidad', 'length', 'max'=>30),
+            array('direccion', 'length', 'max'=>200),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id_unidad, nombre, direccion, cp, localidad, comunidad, provincia, telefono, cooporativo, email', 'safe', 'on'=>'search'),
@@ -73,7 +74,7 @@ class Unidad extends CActiveRecord
 			'comunidad' => 'Comunidad',
 			'provincia' => 'Provincia',
 			'telefono' => 'Telefono',
-			'cooporativo' => 'Cooporativo',
+			'cooporativo' => 'Coorporativo',
 			'email' => 'Email',
 		);
 	}

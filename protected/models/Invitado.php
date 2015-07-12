@@ -15,7 +15,7 @@
  */
 class Invitado extends CActiveRecord
 {
-    public $asunt, $cargos, $lugar, $empleo, $fecha, $nombre, $apellidos;
+    public $asunt, $cargos, $lugar, $empleo, $fecha, $nombre, $organismo, $apellidos;
 	/**
 	 * @return string the associated database table name
 	 */
@@ -34,10 +34,10 @@ class Invitado extends CActiveRecord
 		return array(
 			array('id_acto, id_persona', 'required'),
 			array('id_acto, id_persona', 'numerical', 'integerOnly'=>true),
-			array('asiste', 'length', 'max'=>3),
+			array('asiste', 'length', 'max'=>4),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id_invitado, asunt, lugar, cargos, empleo, fecha, nombre, apellidos,
+			array('id_invitado, organismo, asunt, lugar, cargos, empleo, fecha, nombre, apellidos,
             id_acto, id_persona, asiste', 'safe', 'on'=>'search'),
 		);
 	}
@@ -84,6 +84,7 @@ return $salida;
             'fecha'=>'Fecha',
             'nombre'=>'Nombre',
             'apellidos'=>'Apellidos',
+            'organismo'=>'Organimso',
 		);
 	}
 
@@ -115,6 +116,7 @@ return $salida;
          $criteria->compare('idActo.lugar', $this->lugar, true );
         $criteria->compare('idPersona.cargos', $this->cargos, true );
         $criteria->compare('idPersona.empleo', $this->empleo, true );
+        $criteria->compare('idPersona.organismo', $this->organismo, true );
         $criteria->compare('idPersona.nombre', $this->nombre, true );
         $criteria->compare('idPersona.apellidos', $this->apellidos, true );
 

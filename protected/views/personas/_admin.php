@@ -8,7 +8,7 @@
     'selectableRows'=>2,
 	'filter'=>$model,
 	'columns'=>array(
-
+        'organismo',
 		'empleo',
 		'nombre',
 		'apellidos',

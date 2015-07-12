@@ -11,10 +11,11 @@
             'value'=> $model->fecha,
         ),
 		'hora',
-		'uniformidad',
+		'presidido_por',
 		/*
 		'observaciones',
 		'presidido_por',
+        'uniformidad',
 		'material_necesario',
 		*/
 		array(

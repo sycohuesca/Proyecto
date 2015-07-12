@@ -58,7 +58,8 @@ class Actos extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('asunto, lugar, fecha, presidido_por', 'required'),
-			array('hora, uniformidad, observaciones, material_necesario', 'length', 'max'=>45),
+			array('hora', 'length', 'max'=>45),
+            array('uniformidad, observaciones, material_necesario', 'length', 'max'=>500),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id_acto, asunto, lugar, fecha, hora, uniformidad, observaciones, presidido_por, material_necesario', 'safe', 'on'=>'search'),

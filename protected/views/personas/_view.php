@@ -19,6 +19,9 @@
 	<b><?php echo CHtml::encode($data->getAttributeLabel('cargos')); ?>:</b>
 	<?php echo CHtml::encode($data->cargos); ?>
 	<br />
+    <b><?php echo CHtml::encode($data->getAttributeLabel('organismo')); ?>:</b>
+	<?php echo CHtml::encode($data->organismo); ?>
+	<br />
 <b><?php echo CHtml::encode($data->getAttributeLabel('direccion')); ?>:</b>
 	<?php echo CHtml::encode($data->direccion); ?>
      <br />

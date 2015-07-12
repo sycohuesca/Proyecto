@@ -21,13 +21,13 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'tratamiento'); ?>
-		<?php echo $form->textField($model,'tratamiento',array('size'=>20,'maxlength'=>20)); ?>
+		<?php echo $form->textField($model,'tratamiento',array('size'=>45,'maxlength'=>50)); ?>
 		<?php echo $form->error($model,'tratamiento'); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'empleo'); ?>
-		<?php echo $form->textField($model,'empleo',array('size'=>20,'maxlength'=>20)); ?>
+		<?php echo $form->textField($model,'empleo',array('size'=>45,'maxlength'=>50)); ?>
 		<?php echo $form->error($model,'empleo'); ?>
 	</div>
 
@@ -51,9 +51,15 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'cargos'); ?>
-		<?php echo $form->textField($model,'cargos',array('size'=>60,'maxlength'=>100)); ?>
+		<?php echo $form->textArea($model,'cargos',array('rows'=>6, 'cols'=>50)); ?>
 		<?php echo $form->error($model,'cargos'); ?>
 	</div>
+    <div class="row">
+		<?php echo $form->labelEx($model,'organismo'); ?>
+		<?php echo $form->textField($model,'organismo',array('size'=>45,'maxlength'=>100)); ?>
+		<?php echo $form->error($model,'organismo'); ?>
+	</div>
+
 <div class="row">
 		<label>Unidad</label>
 		<?php echo $form->dropDownList($model,'id_unidad',CHtml::listData(Unidad::model()->findAll(), 'id_unidad', 'nombre')); ?>
@@ -62,13 +68,13 @@
 	</div>
 	<div class="row">
 		<?php echo $form->labelEx($model,'email'); ?>
-		<?php echo $form->textField($model,'email',array('size'=>45,'maxlength'=>45)); ?>
+		<?php echo $form->textField($model,'email',array('size'=>45,'maxlength'=>50)); ?>
 		<?php echo $form->error($model,'email'); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'direccion'); ?>
-		<?php echo $form->textField($model,'direccion',array('size'=>60,'maxlength'=>100)); ?>
+		<?php echo $form->textField($model,'direccion',array('size'=>45,'maxlength'=>100)); ?>
 		<?php echo $form->error($model,'direccion'); ?>
 	</div>
 
