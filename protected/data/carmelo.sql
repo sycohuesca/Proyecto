@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-07-2015 a las 12:43:05
+-- Tiempo de generación: 12-07-2015 a las 13:36:25
 -- Versión del servidor: 5.6.24
 -- Versión de PHP: 5.6.8
 
@@ -36,13 +36,7 @@ CREATE TABLE IF NOT EXISTS `actos` (
   `observaciones` text COLLATE utf8mb4_spanish_ci NOT NULL,
   `presidido_por` varchar(45) COLLATE utf8mb4_spanish_ci NOT NULL,
   `material_necesario` text COLLATE utf8mb4_spanish_ci NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
-
---
--- Volcado de datos para la tabla `actos`
---
-
-
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 -- --------------------------------------------------------
 
@@ -56,12 +50,6 @@ CREATE TABLE IF NOT EXISTS `invitado` (
   `id_persona` int(8) NOT NULL,
   `asiste` enum('si','no') COLLATE utf8mb4_spanish_ci NOT NULL DEFAULT 'si'
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
-
---
--- Volcado de datos para la tabla `invitado`
---
-
-
 
 -- --------------------------------------------------------
 
@@ -90,13 +78,7 @@ CREATE TABLE IF NOT EXISTS `personas` (
   `fecha_de_cese` varchar(25) COLLATE utf8mb4_spanish_ci NOT NULL,
   `observaciones` text COLLATE utf8mb4_spanish_ci NOT NULL,
   `id_unidad` int(8) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
-
---
--- Volcado de datos para la tabla `personas`
---
-
-
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 -- --------------------------------------------------------
 
@@ -190,7 +172,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `actos`
 --
 ALTER TABLE `actos`
-  MODIFY `id_acto` int(8) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `id_acto` int(8) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `invitado`
 --
@@ -200,7 +182,7 @@ ALTER TABLE `invitado`
 -- AUTO_INCREMENT de la tabla `personas`
 --
 ALTER TABLE `personas`
-  MODIFY `id_personas` int(8) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+  MODIFY `id_personas` int(8) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT de la tabla `unidad`
 --

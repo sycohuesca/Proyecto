@@ -38,7 +38,7 @@ class Personas extends CActiveRecord
 	{
 		return 'personas';
 	}
-public $Unidad;
+public $unidad;
 	/**
 	 * @return array validation rules for model attributes.
 	 */
@@ -57,7 +57,7 @@ public $Unidad;
 			array('toma_posesion, fecha_de_cese', 'length', 'max'=>25),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id_personas, tratamiento, empleo, nombre, apellidos, dni, cargos, email, direccion, localidad, provincia, cp, comunidad, movil, organismo, cooporativo, toma_posesion, fecha_de_cese, observaciones, id_unidad', 'safe', 'on'=>'search'),
+			array('id_personas, tratamiento, empleo, nombre, apellidos, dni, cargos, email, direccion, localidad, provincia, unidad, cp, comunidad, movil, unidad, organismo, cooporativo, toma_posesion, fecha_de_cese, observaciones, id_unidad', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -99,7 +99,10 @@ public $Unidad;
 			'toma_posesion' => 'Toma Posesion',
 			'fecha_de_cese' => 'Fecha De Cese',
 			'observaciones' => 'Observaciones',
-			'id_unidad' => 'Id Unidad',
+			'id_unidad' => 'Id_unidad',
+            'unidad'=>'Unidad',
+
+
 		);
 	}
 
@@ -120,7 +123,7 @@ public $Unidad;
 		// @todo Please modify the following code to remove attributes that should not be searched.
 
 		$criteria=new CDbCriteria;
-
+$criteria->with = array('idUnidad');
 		$criteria->compare('id_personas',$this->id_personas);
 		$criteria->compare('tratamiento',$this->tratamiento,true);
         $criteria->compare('organismo',$this->organismo,true);
@@ -140,10 +143,22 @@ public $Unidad;
 		$criteria->compare('toma_posesion',$this->toma_posesion,true);
 		$criteria->compare('fecha_de_cese',$this->fecha_de_cese,true);
 		$criteria->compare('observaciones',$this->observaciones,true);
-		$criteria->compare('id_unidad',$this->id_unidad);
+        $criteria->compare('id_unidad',$this->id_unidad);
+       $criteria->compare('idUnidad.nombre', $this->unidad, true );
+
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
+             'sort'=>array(
+          'attributes'=>array(
+             'unidad'=>array(
+                 'asc'=>'idUnidad.nombre ASC',
+                 'desc'=>'idUnidad.nombre DESC',
+               ),
+             '*',
+            ),
+
+     ),
 		));
 	}
 

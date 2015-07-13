@@ -13,12 +13,11 @@
 		'nombre',
 		'apellidos',
 		'dni',
-        array(
-            'name'=>'Unidad',
-            'value'=>'$data->idUnidad->nombre',
-        ),
+       array(
+   'name'=>'unidad',
+   'value' => '$data->idUnidad->nombre',
+),
         'comunidad',
-
         'localidad',
 		/*
 		'cargos',
