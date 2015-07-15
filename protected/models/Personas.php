@@ -99,7 +99,7 @@ public $unidad;
 			'toma_posesion' => 'Toma Posesion',
 			'fecha_de_cese' => 'Fecha De Cese',
 			'observaciones' => 'Observaciones',
-			'id_unidad' => 'Id_unidad',
+			'id_unidad' => 'Unidad',
             'unidad'=>'Unidad',
 
 
@@ -123,7 +123,7 @@ public $unidad;
 		// @todo Please modify the following code to remove attributes that should not be searched.
 
 		$criteria=new CDbCriteria;
-$criteria->with = array('idUnidad');
+        $criteria->with = array('idUnidad');
 		$criteria->compare('id_personas',$this->id_personas);
 		$criteria->compare('tratamiento',$this->tratamiento,true);
         $criteria->compare('organismo',$this->organismo,true);
@@ -144,7 +144,7 @@ $criteria->with = array('idUnidad');
 		$criteria->compare('fecha_de_cese',$this->fecha_de_cese,true);
 		$criteria->compare('observaciones',$this->observaciones,true);
         $criteria->compare('id_unidad',$this->id_unidad);
-       $criteria->compare('idUnidad.nombre', $this->unidad, true );
+       $criteria->compare('idUnidad.nombre_u', $this->unidad, true );
 
 
 		return new CActiveDataProvider($this, array(
@@ -152,8 +152,8 @@ $criteria->with = array('idUnidad');
              'sort'=>array(
           'attributes'=>array(
              'unidad'=>array(
-                 'asc'=>'idUnidad.nombre ASC',
-                 'desc'=>'idUnidad.nombre DESC',
+                 'asc'=>'idUnidad.nombre_u ASC',
+                 'desc'=>'idUnidad.nombre_u DESC',
                ),
              '*',
             ),

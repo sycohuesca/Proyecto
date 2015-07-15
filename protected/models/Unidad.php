@@ -5,11 +5,11 @@
  *
  * The followings are the available columns in table 'unidad':
  * @property integer $id_unidad
- * @property string $nombre
+ * @property string $nombre_u
  * @property string $direccion
  * @property integer $cp
- * @property string $localidad
- * @property string $comunidad
+ * @property string $localidad_u
+ * @property string $comunidad_u
  * @property string $provincia
  * @property integer $telefono
  * @property integer $cooporativo
@@ -37,14 +37,13 @@ class Unidad extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('nombre', 'required'),
+			array('nombre_u', 'required'),
 			array('cp, telefono, cooporativo', 'numerical', 'integerOnly'=>true),
-			array('nombre, localidad, provincia, email', 'length', 'max'=>45),
-			array('comunidad', 'length', 'max'=>30),
+			array('nombre_u, localidad_u,comunidad_u, provincia, email', 'length', 'max'=>45),
             array('direccion', 'length', 'max'=>200),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id_unidad, nombre, direccion, cp, localidad, comunidad, provincia, telefono, cooporativo, email', 'safe', 'on'=>'search'),
+			array('id_unidad, nombre_u, direccion, cp, localidad_u, comunidad_u, provincia, telefono, cooporativo, email', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -67,11 +66,11 @@ class Unidad extends CActiveRecord
 	{
 		return array(
 			'id_unidad' => 'Id Unidad',
-			'nombre' => 'Nombre',
+			'nombre_u' => 'Nombre',
 			'direccion' => 'Direccion',
 			'cp' => 'Cp',
-			'localidad' => 'Localidad',
-			'comunidad' => 'Comunidad',
+			'localidad_u' => 'Localidad',
+			'comunidad_u' => 'Comunidad',
 			'provincia' => 'Provincia',
 			'telefono' => 'Telefono',
 			'cooporativo' => 'Coorporativo',
@@ -98,11 +97,11 @@ class Unidad extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id_unidad',$this->id_unidad);
-		$criteria->compare('nombre',$this->nombre,true);
+		$criteria->compare('nombre_u',$this->nombre_u,true);
 		$criteria->compare('direccion',$this->direccion,true);
 		$criteria->compare('cp',$this->cp);
-		$criteria->compare('localidad',$this->localidad,true);
-		$criteria->compare('comunidad',$this->comunidad,true);
+		$criteria->compare('localidad_u',$this->localidad_u,true);
+		$criteria->compare('comunidad_u',$this->comunidad_u,true);
 		$criteria->compare('provincia',$this->provincia,true);
 		$criteria->compare('telefono',$this->telefono);
 		$criteria->compare('cooporativo',$this->cooporativo);

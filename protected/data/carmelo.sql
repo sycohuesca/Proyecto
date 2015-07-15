@@ -128,7 +128,7 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id_usuario`, `usuario`, `password`, `email`, `fecha_alta`, `privilegios`, `observaciones`, `actualizado`) VALUES
-(40, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'ajlucea@hotmail.com', '20-06-2015', 'administrador', '', '2015-06-20 07:13:03');
+(40, 'admin', '21232f297a57a5a743894a0e4a801fc3', 't4tt5t33@hotmail.com', '20-06-2015', 'administrador', '', '2015-06-20 07:13:03');
 
 --
 -- Índices para tablas volcadas

@@ -1,0 +1,57 @@
+ul.breadcrumbs {
+
+}
+.header{
+margin-top: 50px;
+}
+.footer {
+    background-color:grey;
+
+    height: auto;
+
+
+}
+#logo {
+    height: 30px;
+    width: 100%;
+}
+
+
+.index {
+background-color: beige;
+margin-top:3px;
+    padding: 20px 20px;
+}
+.index b strong{
+    font-size: 2em;
+}
+
+a.sort-link {
+    color: black;
+}
+
+
+ ul.nav-pills li a{
+    background-color:black;
+    color: white;
+}
+
+ ul.nav-pills li a:hover,.nav-collapse ul li:hover,  a.brand:hover{
+    background-color:red;
+    color: white;
+}
+.footer{
+    padding: 20px 20px;
+
+}
+p.h1 {
+    font-size: 3em;
+    margin-top: 30px;
+    margin-bottom: 30px;
+     text-shadow: 2px 2px 8px #FF0000;
+
+}
+#presentacion {
+    height: auto;
+    width: 100%;
+}
